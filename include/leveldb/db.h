@@ -50,8 +50,9 @@ class LEVELDB_EXPORT DB {
   // OK on success.
   // Stores nullptr in *dbptr and returns a non-OK status on error.
   // Caller should delete *dbptr when it is no longer needed.
+  // 'tag' is a required caller-supplied label for the database handle.
   static Status Open(const Options& options, const std::string& name,
-                     DB** dbptr);
+                     const std::string& tag, DB** dbptr);
 
   DB() = default;
 

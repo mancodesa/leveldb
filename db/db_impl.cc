@@ -1500,7 +1500,9 @@ Status DB::Delete(const WriteOptions& opt, const Slice& key) {
 
 DB::~DB() = default;
 
-Status DB::Open(const Options& options, const std::string& dbname, DB** dbptr) {
+Status DB::Open(const Options& options, const std::string& dbname,
+                const std::string& tag, DB** dbptr) {
+  (void)tag;
   *dbptr = nullptr;
 
   DBImpl* impl = new DBImpl(options, dbname);
