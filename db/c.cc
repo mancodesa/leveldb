@@ -327,7 +327,7 @@ leveldb_writebatch_t* leveldb_writebatch_create() {
 
 void leveldb_writebatch_destroy(leveldb_writebatch_t* b) { delete b; }
 
-void leveldb_writebatch_clear(leveldb_writebatch_t* b) { b->rep.Clear(); }
+void leveldb_writebatch_clear(leveldb_writebatch_t* b) { b->rep.Reset(); }
 
 void leveldb_writebatch_put(leveldb_writebatch_t* b, const char* key,
                             size_t klen, const char* val, size_t vlen) {

@@ -95,7 +95,7 @@ TEST(WriteBatchTest, Append) {
   b2.Put("a", "va");
   b1.Append(b2);
   ASSERT_EQ("Put(a, va)@200", PrintContents(&b1));
-  b2.Clear();
+  b2.Reset();
   b2.Put("b", "vb");
   b1.Append(b2);
   ASSERT_EQ(

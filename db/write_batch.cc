@@ -26,13 +26,13 @@ namespace leveldb {
 // WriteBatch header has an 8-byte sequence number followed by a 4-byte count.
 static const size_t kHeader = 12;
 
-WriteBatch::WriteBatch() { Clear(); }
+WriteBatch::WriteBatch() { Reset(); }
 
 WriteBatch::~WriteBatch() = default;
 
 WriteBatch::Handler::~Handler() = default;
 
-void WriteBatch::Clear() {
+void WriteBatch::Reset() {
   rep_.clear();
   rep_.resize(kHeader);
 }

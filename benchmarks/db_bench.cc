@@ -848,7 +848,7 @@ class Benchmark {
     int64_t bytes = 0;
     KeyBuffer key;
     for (int i = 0; i < num_; i += entries_per_batch_) {
-      batch.Clear();
+      batch.Reset();
       for (int j = 0; j < entries_per_batch_; j++) {
         const int k = seq ? i + j : thread->rand.Uniform(FLAGS_num);
         key.Set(k);
@@ -978,7 +978,7 @@ class Benchmark {
     Status s;
     KeyBuffer key;
     for (int i = 0; i < num_; i += entries_per_batch_) {
-      batch.Clear();
+      batch.Reset();
       for (int j = 0; j < entries_per_batch_; j++) {
         const int k = seq ? i + j : (thread->rand.Uniform(FLAGS_num));
         key.Set(k);
