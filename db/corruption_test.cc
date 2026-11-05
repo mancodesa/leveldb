@@ -60,7 +60,7 @@ class CorruptionTest : public testing::Test {
     for (int i = 0; i < n; i++) {
       // if ((i % 100) == 0) std::fprintf(stderr, "@ %d of %d\n", i, n);
       Slice key = Key(i, &key_space);
-      batch.Clear();
+      batch.Reset();
       batch.Put(key, Value(i, &value_space));
       WriteOptions options;
       // Corrupt() doesn't work without this sync on windows; stat reports 0 for

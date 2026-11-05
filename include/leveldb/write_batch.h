@@ -54,7 +54,7 @@ class LEVELDB_EXPORT WriteBatch {
   void Delete(const Slice& key);
 
   // Clear all updates buffered in this batch.
-  void Clear();
+  void Reset();
 
   // The size of the database changes caused by this batch.
   //

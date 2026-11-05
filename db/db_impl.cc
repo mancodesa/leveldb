@@ -1252,7 +1252,7 @@ Status DBImpl::Write(const WriteOptions& options, WriteBatch* updates) {
         RecordBackgroundError(status);
       }
     }
-    if (write_batch == tmp_batch_) tmp_batch_->Clear();
+    if (write_batch == tmp_batch_) tmp_batch_->Reset();
 
     versions_->SetLastSequence(last_sequence);
   }

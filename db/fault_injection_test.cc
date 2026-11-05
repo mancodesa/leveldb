@@ -399,7 +399,7 @@ class FaultInjectionTest : public testing::Test {
     WriteBatch batch;
     for (int i = start_idx; i < start_idx + num_vals; i++) {
       Slice key = Key(i, &key_space);
-      batch.Clear();
+      batch.Reset();
       batch.Put(key, Value(i, &value_space));
       WriteOptions options;
       ASSERT_LEVELDB_OK(db_->Write(options, &batch));
