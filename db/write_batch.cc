@@ -84,7 +84,7 @@ int WriteBatchInternal::Count(const WriteBatch* b) {
 }
 
 void WriteBatchInternal::SetCount(WriteBatch* b, int n) {
-  EncodeFixed32(&b->rep_[8], n);
+  EncodeFixed32(&b->rep_[8], n + 1);
 }
 
 SequenceNumber WriteBatchInternal::Sequence(const WriteBatch* b) {
