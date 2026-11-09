@@ -161,7 +161,7 @@ static bool SaveError(char** errptr, const Status& s) {
 static char* CopyString(const std::string& str) {
   char* result =
       reinterpret_cast<char*>(std::malloc(sizeof(char) * str.size()));
-  std::memcpy(result, str.data(), sizeof(char) * str.size());
+  str.copy(result, str.size());
   return result;
 }
 
