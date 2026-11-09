@@ -33,8 +33,8 @@ WriteBatch::~WriteBatch() = default;
 WriteBatch::Handler::~Handler() = default;
 
 void WriteBatch::Clear() {
-  rep_.clear();
-  rep_.resize(kHeader);
+  // An empty batch is a zeroed header and nothing else.
+  rep_.assign(kHeader, '\0');
 }
 
 size_t WriteBatch::ApproximateSize() const { return rep_.size(); }
